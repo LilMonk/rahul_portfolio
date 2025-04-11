@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# Rahul Kumar Sahoo - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS to showcase my professional experience as a Software Consultant.
 
-Currently, two official plugins are available:
+![Portfolio Preview](public/RahulSahooLogo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Features
 
-## Expanding the ESLint configuration
+- **Responsive Design**: Looks great on all device sizes
+- **Dark/Light Mode**: Toggle between themes for comfortable viewing
+- **Interactive UI**: Smooth scrolling, animations, and interactive elements
+- **Project Showcase**: Highlight my key projects with descriptions and links
+- **Skills Visualization**: Visual representation of technical expertise
+- **Blog Integration**: Showcase my Medium articles
+- **Contact Form**: Easy way for visitors to get in touch
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technologies Used
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Frontend**: React 19, TypeScript
+- **Build Tool**: Vite 6
+- **Styling**: Tailwind CSS 4
+- **Linting**: ESLint 9 with TypeScript support
+- **Deployment**: [Your deployment platform]
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/LilMonk/portfolio.git
+cd portfolio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies
+```bash
+npm install
+# or
+yarn
 ```
+
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open your browser and visit `http://localhost:5173`
+
+## 🏗️ Build
+
+To build the project for production:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The build output will be in the `dist` directory.
+
+## 🧪 Linting
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/         # Images, fonts, and other static files
+├── components/     # Reusable UI components
+│   ├── layout/     # Layout components (Header, Footer)
+│   ├── sections/   # Main page sections (Hero, Projects, etc.)
+│   └── ui/         # Small UI components
+├── hooks/          # Custom React hooks
+├── pages/          # Page components
+├── types/          # TypeScript type definitions
+├── utils/          # Utility functions and data
+├── App.tsx         # Main App component
+└── main.tsx        # Entry point
+```
+
+## 📝 License
+
+[Your chosen license]
+
+## 📧 Contact
+
+- Email: rahulsahoo66@gmai.com
+- GitHub: [@LilMonk](https://github.com/LilMonk)
+- LinkedIn: [Rahul Kumar Sahoo](https://www.linkedin.com/in/rahulkumar-sahoo/)
+- Medium: [@lilmonk](https://medium.com/@lilmonk)
