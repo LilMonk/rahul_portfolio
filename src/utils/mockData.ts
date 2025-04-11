@@ -5,131 +5,107 @@ import {
   Education, 
   Skill 
 } from '../types/portfolio';
+import logoImage from '../assets/images/RahulSahooLogo.png'; // Using existing logo as a fallback for missing images
 
 export const personalInfo: PersonalInfo = {
-  name: 'John Doe',
-  title: 'Full Stack Developer',
-  bio: 'Passionate developer with 5+ years of experience building web and mobile applications. Specialized in React, TypeScript, and Node.js. I love creating elegant solutions to complex problems.',
-  avatar: '/avatar.jpg', // Will need to add this image to public folder
+  name: 'Rahul Kumar Sahoo',
+  title: 'Software Consultant',
+  bio: 'I am a passionate software consultant with a strong background in designing, developing, and deploying innovative tech solutions for diverse business needs. Over the years, I have honed my expertise in areas such as big data, devops, and data science. I believe in my ability to solve complex problems and deliver high-quality solutions. My goal is to collaborate with forward-thinking teams and clients, delivering products that drive measurable impact.',
+  avatar: logoImage, // Using logo image as fallback
   contact: {
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    linkedin: 'https://linkedin.com/in/johndoe',
-    github: 'https://github.com/johndoe',
-    location: 'San Francisco, CA'
+    email: 'rahulsahoo66@gmai.com',
+    linkedin: 'https://www.linkedin.com/in/rahulkumar-sahoo/',
+    github: 'https://github.com/LilMonk',
+    twitter: 'https://medium.com/@lilmonk',
+    location: 'Khopoli, Maharashtra, India'
   }
 };
 
 export const projects: Project[] = [
   {
     id: 'project-1',
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with product management, cart functionality, and payment integration.',
-    imageUrl: '/projects/ecommerce.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
-    githubUrl: 'https://github.com/johndoe/ecommerce',
-    liveUrl: 'https://ecommerce-demo.example.com',
-    details: 'Built from scratch using the MERN stack. Implemented features like user authentication, product search, shopping cart, and secure payment processing with Stripe.'
+    title: 'Big Data Analytics For IOT',
+    description: 'Developed a data pipeline to process and analyze IoT data streams, providing real-time insights and alerts.',
+    imageUrl: logoImage, // Using logo image as fallback
+    technologies: ['Apache Kafka', 'Apache Spark', 'BigQuery'],
+    githubUrl: 'https://medium.com/@lilmonk/a-journey-from-raw-data-to-actionable-insights-edb03a8f9c36',
+    details: 'Created a comprehensive data pipeline solution for processing and analyzing large volumes of IoT data. Implemented real-time data processing for immediate insights and alerts, enabling swift response to critical events.'
   },
   {
     id: 'project-2',
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates and team workspaces.',
-    imageUrl: '/projects/taskapp.jpg',
-    technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/johndoe/taskapp',
-    liveUrl: 'https://taskapp-demo.example.com',
-    details: 'Designed and implemented a responsive UI with Tailwind CSS. Used Firebase for real-time database and authentication. Implemented drag-and-drop functionality for task management.'
-  },
-  {
-    id: 'project-3',
-    title: 'Weather Dashboard',
-    description: 'A weather dashboard that displays current and forecasted weather conditions for multiple locations.',
-    imageUrl: '/projects/weather.jpg',
-    technologies: ['React', 'Chart.js', 'OpenWeather API', 'Geolocation API'],
-    githubUrl: 'https://github.com/johndoe/weather-dashboard',
-    liveUrl: 'https://weather-demo.example.com'
+    title: 'Stream Processing For CDC Data',
+    description: 'Implemented a stream processing solution to handle Change Data Capture (CDC) events, ensuring real-time data synchronization across systems.',
+    imageUrl: logoImage, // Using logo image as fallback
+    technologies: ['Apache Flink', 'MySQL', 'Iceberg'],
+    githubUrl: 'https://github.com/LilMonk/flink-iceberg-cdc',
+    details: 'Designed and developed a robust stream processing system for Change Data Capture (CDC) events. This solution ensures real-time data synchronization between multiple systems, maintaining data consistency and integrity across the entire data ecosystem.'
   }
 ];
 
 export const experiences: Experience[] = [
   {
-    title: 'Senior Frontend Developer',
-    company: 'Tech Innovations Inc.',
-    location: 'San Francisco, CA',
-    startDate: 'January 2022',
+    title: 'Software Consultant',
+    company: 'Self-Employed / Freelance',
+    location: 'India',
+    startDate: 'July 2023',
     endDate: 'Present',
     description: [
-      'Lead a team of 5 developers in building a new customer portal using React and TypeScript',
-      'Implemented CI/CD pipelines that reduced deployment time by 50%',
-      'Optimized application performance resulting in a 30% improvement in load times'
+      'Consult with clients to understand business requirements and propose technical solutions',
+      'Design and implement software architectures that meet client needs',
+      'Oversee project lifecycles, from initial planning to deployment and maintenance',
+      'Delivered data-driven solutions for clients',
+      'Deployed scalable applications on Kubernetes clusters'
     ],
-    technologies: ['React', 'TypeScript', 'Redux', 'Jest', 'Cypress', 'AWS']
+    technologies: ['Python', 'Pyspark', 'Kubernetes', 'AWS', 'Terraform']
   },
   {
-    title: 'Full Stack Developer',
-    company: 'WebSolutions Co.',
-    location: 'Austin, TX',
-    startDate: 'June 2019',
-    endDate: 'December 2021',
+    title: 'Senior Software Engineer',
+    company: 'Persistent Systems',
+    location: 'India',
+    startDate: 'January 2021',
+    endDate: 'July 2023',
     description: [
-      'Developed and maintained multiple client websites using React and Node.js',
-      'Designed and implemented RESTful APIs for various client projects',
-      'Collaborated with the design team to implement responsive and accessible UI components'
+      'Developed data pipelines and ETL processes for big data analytics',
+      'Collaborated with cross-functional teams to deliver large-scale projects',
+      'Processed over 20GB of data daily, to create metrics and reports for clients',
+      'Improved data processing time by 30% through optimization techniques'
     ],
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL']
-  },
-  {
-    title: 'Junior Web Developer',
-    company: 'Digital Creations',
-    location: 'Boston, MA',
-    startDate: 'August 2017',
-    endDate: 'May 2019',
-    description: [
-      'Assisted in the development of web applications using JavaScript and jQuery',
-      'Implemented responsive designs from Figma mockups',
-      'Participated in code reviews and testing procedures'
-    ],
-    technologies: ['JavaScript', 'HTML', 'CSS', 'jQuery', 'Bootstrap']
+    technologies: ['Scala', 'Apache Spark', 'AWS EMR', 'Apache Hive']
   }
 ];
 
 export const education: Education[] = [
   {
-    institution: 'Massachusetts Institute of Technology',
-    degree: 'Master of Science',
+    institution: 'Maharashtra Institute of Technology',
+    degree: 'Bachelor of Technology',
     field: 'Computer Science',
-    startDate: '2015',
-    endDate: '2017',
-    location: 'Cambridge, MA',
-    description: 'Specialized in Human-Computer Interaction and Software Engineering'
-  },
-  {
-    institution: 'University of California, Berkeley',
-    degree: 'Bachelor of Science',
-    field: 'Computer Science',
-    startDate: '2011',
-    endDate: '2015',
-    location: 'Berkeley, CA',
-    description: 'Graduated with honors. Minor in Mathematics.'
+    startDate: '2017',
+    endDate: '2021',
+    location: 'Maharashtra, India'
   }
 ];
 
 export const skills: Skill[] = [
-  { name: 'React', level: 90, category: 'frontend' },
-  { name: 'TypeScript', level: 85, category: 'frontend' },
-  { name: 'JavaScript', level: 95, category: 'frontend' },
-  { name: 'HTML/CSS', level: 90, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 85, category: 'frontend' },
-  { name: 'Redux', level: 80, category: 'frontend' },
-  { name: 'Node.js', level: 85, category: 'backend' },
-  { name: 'Express', level: 80, category: 'backend' },
-  { name: 'MongoDB', level: 75, category: 'backend' },
-  { name: 'PostgreSQL', level: 70, category: 'backend' },
-  { name: 'GraphQL', level: 70, category: 'backend' },
-  { name: 'AWS', level: 65, category: 'backend' },
-  { name: 'Git', level: 85, category: 'other' },
-  { name: 'Docker', level: 65, category: 'other' },
-  { name: 'Agile/Scrum', level: 80, category: 'other' },
-  { name: 'Jest', level: 75, category: 'other' }
+  // Programming Languages
+  { name: 'Python', level: 90, category: 'frontend' },
+  { name: 'Java', level: 85, category: 'frontend' },
+  { name: 'Scala', level: 80, category: 'frontend' },
+  { name: 'Go', level: 75, category: 'frontend' },
+  
+  // Frameworks & Libraries
+  { name: 'Apache Spark', level: 90, category: 'backend' },
+  { name: 'Kafka', level: 85, category: 'backend' },
+  { name: 'FastAPI', level: 80, category: 'backend' },
+  { name: 'Gin', level: 75, category: 'backend' },
+  
+  // Databases
+  { name: 'PostgreSQL', level: 85, category: 'backend' },
+  { name: 'Hive', level: 80, category: 'backend' },
+  
+  // Cloud & DevOps
+  { name: 'AWS', level: 90, category: 'other' },
+  { name: 'GCP', level: 85, category: 'other' },
+  { name: 'Docker', level: 90, category: 'other' },
+  { name: 'Kubernetes', level: 85, category: 'other' },
+  { name: 'CI/CD (GitHub Actions)', level: 80, category: 'other' }
 ];

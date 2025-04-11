@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { personalInfo } from '../../utils/mockData';
+import logoImage from '../../assets/images/RahulSahooLogo.png';
 
 type NavLink = {
   label: string;
@@ -11,6 +13,7 @@ const navLinks: NavLink[] = [
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -37,9 +40,14 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0 font-bold text-xl">
-            <a href="#home" className="text-gray-900 dark:text-white">
-              John Doe
+          <div className="flex-shrink-0 font-bold text-xl flex items-center">
+            <a href="#home" className="flex items-center text-gray-900 dark:text-white">
+              <img 
+                src={logoImage} 
+                alt="Rahul Sahoo Logo" 
+                className="h-10 w-10 mr-2"
+              />
+              {personalInfo.name}
             </a>
           </div>
           
