@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { personalInfo } from '../../utils/mockData';
 import logoImage from '../../assets/images/RahulSahooLogo.png';
+import { useThemeColors } from '../../hooks/useThemeColors';
 
 type NavLink = {
   label: string;
@@ -20,6 +21,7 @@ const navLinks: NavLink[] = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const colors = useThemeColors();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,13 +37,13 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-md backdrop-blur-sm' : 'bg-transparent'
+        isScrolled ? `${colors.bgPrimary} bg-opacity-90 shadow-md backdrop-blur-sm` : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 font-bold text-xl flex items-center">
-            <a href="#home" className="flex items-center text-gray-900 dark:text-white">
+            <a href="#home" className={`flex items-center ${colors.textPrimary}`}>
               <img 
                 src={logoImage} 
                 alt="Rahul Sahoo Logo" 
@@ -57,7 +59,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className={`${colors.textSecondary} hover:${colors.brandPrimary} px-3 py-2 rounded-md text-sm font-medium transition-colors`}
               >
                 {link.label}
               </a>
@@ -68,7 +70,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700 focus:outline-none"
+              className={`inline-flex items-center justify-center p-2 rounded-md ${colors.textSecondary} hover:${colors.textPrimary} hover:${colors.bgSecondary} focus:outline-none`}
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,12 +119,12 @@ export default function Header() {
         className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
         id="mobile-menu"
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 shadow-lg">
+        <div className={`px-2 pt-2 pb-3 space-y-1 ${colors.bgPrimary} shadow-lg`}>
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${colors.textSecondary} hover:${colors.textPrimary} hover:${colors.bgSecondary}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}

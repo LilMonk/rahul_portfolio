@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { personalInfo } from '../../utils/mockData';
+import { useThemeColors } from '../../hooks/useThemeColors';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function Contact() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
+  const colors = useThemeColors();
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -41,32 +43,32 @@ export default function Contact() {
   const { contact } = personalInfo;
 
   return (
-    <section id="contact" className="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className={`py-16 ${colors.bgSecondary}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+          <h2 className={`text-3xl font-bold ${colors.textPrimary} mb-4`}>Get In Touch</h2>
           <div className="w-20 h-1 mx-auto bg-indigo-500 rounded"></div>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className={`mt-4 text-lg ${colors.textAccent} max-w-2xl mx-auto`}>
             Have a question or want to work together? Feel free to contact me.
           </p>
         </div>
         
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
+          <div className={`${colors.bgPrimary} p-8 rounded-lg shadow-md`}>
+            <h3 className={`text-2xl font-bold ${colors.textPrimary} mb-6`}>Contact Information</h3>
             
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300">
+                <div className={`flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full ${colors.getThemeClass('bg-indigo-100 text-indigo-600', 'bg-indigo-900 text-indigo-300')}`}>
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white">Email</h4>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300">
-                    <a href={`mailto:${contact.email}`} className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  <h4 className={`text-lg font-medium ${colors.textPrimary}`}>Email</h4>
+                  <p className={`mt-1 ${colors.textAccent}`}>
+                    <a href={`mailto:${contact.email}`} className={`hover:${colors.brandPrimary}`}>
                       {contact.email}
                     </a>
                   </p>
@@ -75,15 +77,15 @@ export default function Contact() {
               
               {contact.phone && (
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300">
+                  <div className={`flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full ${colors.getThemeClass('bg-indigo-100 text-indigo-600', 'bg-indigo-900 text-indigo-300')}`}>
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">Phone</h4>
-                    <p className="mt-1 text-gray-600 dark:text-gray-300">
-                      <a href={`tel:${contact.phone}`} className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                    <h4 className={`text-lg font-medium ${colors.textPrimary}`}>Phone</h4>
+                    <p className={`mt-1 ${colors.textAccent}`}>
+                      <a href={`tel:${contact.phone}`} className={`hover:${colors.brandPrimary}`}>
                         {contact.phone}
                       </a>
                     </p>
@@ -93,29 +95,29 @@ export default function Contact() {
               
               {contact.location && (
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300">
+                  <div className={`flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full ${colors.getThemeClass('bg-indigo-100 text-indigo-600', 'bg-indigo-900 text-indigo-300')}`}>
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">Location</h4>
-                    <p className="mt-1 text-gray-600 dark:text-gray-300">{contact.location}</p>
+                    <h4 className={`text-lg font-medium ${colors.textPrimary}`}>Location</h4>
+                    <p className={`mt-1 ${colors.textAccent}`}>{contact.location}</p>
                   </div>
                 </div>
               )}
             </div>
             
             <div className="mt-8">
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Connect with me</h4>
+              <h4 className={`text-lg font-medium ${colors.textPrimary} mb-4`}>Connect with me</h4>
               <div className="flex space-x-4">
                 {contact.github && (
                   <a 
                     href={contact.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                    className={`${colors.textAccent} hover:${colors.brandPrimary}`}
                     aria-label="GitHub"
                   >
                     <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -129,7 +131,7 @@ export default function Contact() {
                     href={contact.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                    className={`${colors.textAccent} hover:${colors.brandPrimary}`}
                     aria-label="LinkedIn"
                   >
                     <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -143,7 +145,7 @@ export default function Contact() {
                     href={contact.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400"
+                    className={`${colors.textAccent} hover:${colors.brandPrimary}`}
                     aria-label="Twitter"
                   >
                     <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -156,8 +158,8 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send me a message</h3>
+          <div className={`${colors.bgPrimary} p-8 rounded-lg shadow-md`}>
+            <h3 className={`text-2xl font-bold ${colors.textPrimary} mb-6`}>Send me a message</h3>
             
             {submitMessage ? (
               <div className={`p-4 mb-6 rounded ${
@@ -170,7 +172,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="name" className={`block text-sm font-medium ${colors.textSecondary} mb-1`}>
                     Your Name
                   </label>
                   <input
@@ -180,12 +182,12 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    className={`w-full px-3 py-2 border ${colors.borderPrimary} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${colors.getThemeClass('bg-white', 'bg-gray-600')} ${colors.textPrimary}`}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="email" className={`block text-sm font-medium ${colors.textSecondary} mb-1`}>
                     Email Address
                   </label>
                   <input
@@ -195,12 +197,12 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    className={`w-full px-3 py-2 border ${colors.borderPrimary} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${colors.getThemeClass('bg-white', 'bg-gray-600')} ${colors.textPrimary}`}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="message" className={`block text-sm font-medium ${colors.textSecondary} mb-1`}>
                     Message
                   </label>
                   <textarea
@@ -210,7 +212,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                    className={`w-full px-3 py-2 border ${colors.borderPrimary} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${colors.getThemeClass('bg-white', 'bg-gray-600')} ${colors.textPrimary}`}
                   />
                 </div>
                 

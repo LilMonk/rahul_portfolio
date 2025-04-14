@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useThemeColors } from '../../hooks/useThemeColors';
 import medallionArchImg from '../../assets/images/blog/medallion-architecture.gif';
 import oauthAppDilemmaImg from '../../assets/images/blog/oauth-app-dilemma.webp';
 import sparkDeduplicationImg from '../../assets/images/blog/spark-deduplication.gif';
@@ -46,18 +47,19 @@ const blogPosts: BlogPost[] = [
 
 export default function Blog() {
   const [filter, setFilter] = useState<'all' | 'pinned'>('all');
+  const colors = useThemeColors();
   
   const filteredPosts = filter === 'all' 
     ? blogPosts 
     : blogPosts.filter(post => post.pinned);
 
   return (
-    <section id="blog" className="py-16 bg-gray-50 dark:bg-gray-800">
+    <section id="blog" className={`py-16 ${colors.bgSecondary}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Blog & Articles</h2>
+          <h2 className={`text-3xl font-bold ${colors.textPrimary} mb-4`}>Blog & Articles</h2>
           <div className="w-20 h-1 mx-auto bg-indigo-500 rounded"></div>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className={`mt-4 text-lg ${colors.textAccent} max-w-2xl mx-auto`}>
             Sharing insights and experiences from my journey in software development and data engineering.
           </p>
         </div>
@@ -70,8 +72,8 @@ export default function Blog() {
               className={`px-5 py-2 text-sm font-medium ${
                 filter === 'all'
                   ? 'bg-indigo-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-              } border border-gray-200 dark:border-gray-700 focus:z-10 focus:outline-none first:rounded-l-lg last:rounded-r-lg`}
+                  : `${colors.bgPrimary} ${colors.textSecondary} ${colors.getThemeClass('hover:bg-gray-100', 'hover:bg-gray-700')}`
+              } border ${colors.borderPrimary} focus:z-10 focus:outline-none first:rounded-l-lg last:rounded-r-lg`}
               onClick={() => setFilter('all')}
             >
               All Articles
@@ -81,8 +83,8 @@ export default function Blog() {
               className={`px-5 py-2 text-sm font-medium ${
                 filter === 'pinned'
                   ? 'bg-indigo-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-              } border border-gray-200 dark:border-gray-700 focus:z-10 focus:outline-none first:rounded-l-lg last:rounded-r-lg`}
+                  : `${colors.bgPrimary} ${colors.textSecondary} ${colors.getThemeClass('hover:bg-gray-100', 'hover:bg-gray-700')}`
+              } border ${colors.borderPrimary} focus:z-10 focus:outline-none first:rounded-l-lg last:rounded-r-lg`}
               onClick={() => setFilter('pinned')}
             >
               Pinned
@@ -95,7 +97,7 @@ export default function Blog() {
           {filteredPosts.map((post) => (
             <article 
               key={post.id}
-              className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className={`${colors.bgPrimary} rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300`}
             >
               <a 
                 href={post.url}
@@ -103,7 +105,7 @@ export default function Blog() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div className="h-48 bg-gray-200 dark:bg-gray-600 relative">
+                <div className={`h-48 ${colors.getThemeClass('bg-gray-200', 'bg-gray-600')} relative`}>
                   {post.imageUrl ? (
                     <img 
                       src={post.imageUrl} 
@@ -111,8 +113,8 @@ export default function Blog() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-indigo-100 dark:bg-indigo-900 p-4">
-                      <span className="text-xl font-semibold text-indigo-600 dark:text-indigo-300 text-center">
+                    <div className={`w-full h-full flex items-center justify-center ${colors.getThemeClass('bg-indigo-100', 'bg-indigo-900')} p-4`}>
+                      <span className={`text-xl font-semibold ${colors.getThemeClass('text-indigo-600', 'text-indigo-300')} text-center`}>
                         {post.title}
                       </span>
                     </div>
@@ -125,17 +127,17 @@ export default function Blog() {
                 </div>
               
                 <div className="p-6">
-                  <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  <div className={`text-sm ${colors.textAccent} mb-2`}>
                     {post.date}
                   </div>
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white mb-2">
+                  <h3 className={`font-bold text-xl ${colors.textPrimary} mb-2`}>
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 line-clamp-3">
+                  <p className={`${colors.textAccent} line-clamp-3`}>
                     {post.description}
                   </p>
                   
-                  <div className="mt-4 inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium">
+                  <div className={`mt-4 inline-flex items-center ${colors.brandPrimary} font-medium`}>
                     Read More
                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -153,7 +155,7 @@ export default function Blog() {
             href="https://lilmonk.medium.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className={`inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm ${colors.buttonPrimary}`}
           >
             View All Articles on Medium
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

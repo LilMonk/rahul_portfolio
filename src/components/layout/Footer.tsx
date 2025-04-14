@@ -1,16 +1,18 @@
 import { personalInfo } from '../../utils/mockData';
+import { useThemeColors } from '../../hooks/useThemeColors';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { name, title, contact } = personalInfo;
+  const colors = useThemeColors();
   
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className={`${colors.getThemeClass('bg-gray-900', 'bg-gray-900')} ${colors.getThemeClass('text-white', 'text-white')} py-8`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h2 className="text-xl font-bold">{name}</h2>
-            <p className="text-gray-400 mt-1">{title}</p>
+            <p className={`${colors.getThemeClass('text-gray-400', 'text-gray-400')} mt-1`}>{title}</p>
           </div>
           
           <div className="flex space-x-4">
@@ -19,7 +21,7 @@ export default function Footer() {
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className={`${colors.getThemeClass('text-gray-400', 'text-gray-400')} hover:text-white transition-colors`}
                 aria-label="GitHub"
               >
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +35,7 @@ export default function Footer() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className={`${colors.getThemeClass('text-gray-400', 'text-gray-400')} hover:text-white transition-colors`}
                 aria-label="LinkedIn"
               >
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -47,7 +49,7 @@ export default function Footer() {
                 href={contact.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className={`${colors.getThemeClass('text-gray-400', 'text-gray-400')} hover:text-white transition-colors`}
                 aria-label="Medium"
               >
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +60,7 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-8 border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+        <div className={`mt-8 border-t ${colors.getThemeClass('border-gray-800', 'border-gray-800')} pt-6 text-center ${colors.getThemeClass('text-gray-400', 'text-gray-400')} text-sm`}>
           <p>© {currentYear} {name}. All rights reserved.</p>
         </div>
       </div>
