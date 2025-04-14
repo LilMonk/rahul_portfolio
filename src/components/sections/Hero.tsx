@@ -1,9 +1,58 @@
 import { personalInfo } from '../../utils/mockData';
 import { useThemeColors } from '../../hooks/useThemeColors';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
-  const { name, title, bio } = personalInfo;
+  const { name, bio } = personalInfo;
   const colors = useThemeColors();
+  
+  // Define items to cycle through with typing animation
+  const items = [name, "Software Consultant", "Data Engineer", "DevOps"];
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  
+  // Typing animation effect
+  useEffect(() => {
+    const currentItem = items[currentItemIndex];
+    
+    // Handle typing animation
+    if (isTyping && !isDeleting) {
+      if (displayText.length < currentItem.length) {
+        // Still typing the current item
+        const timeout = setTimeout(() => {
+          setDisplayText(currentItem.substring(0, displayText.length + 1));
+          setTypingSpeed(150); // Normal typing speed
+        }, typingSpeed);
+        return () => clearTimeout(timeout);
+      } else {
+        // Finished typing, pause before deleting
+        const timeout = setTimeout(() => {
+          setIsDeleting(true);
+          setTypingSpeed(100); // Faster when deleting
+        }, 2000);
+        return () => clearTimeout(timeout);
+      }
+    }
+    
+    // Handle deleting animation
+    if (isDeleting) {
+      if (displayText.length > 0) {
+        // Still deleting text
+        const timeout = setTimeout(() => {
+          setDisplayText(currentItem.substring(0, displayText.length - 1));
+        }, typingSpeed / 2); // Delete faster than typing
+        return () => clearTimeout(timeout);
+      } else {
+        // Finished deleting, move to next item
+        setIsDeleting(false);
+        const nextIndex = (currentItemIndex + 1) % items.length;
+        setCurrentItemIndex(nextIndex);
+      }
+    }
+  }, [displayText, isTyping, isDeleting, currentItemIndex, items, typingSpeed]);
   
   return (
     <section id="home" className={`min-h-screen flex items-center py-16 relative ${colors.bgPrimary}`}>
@@ -17,12 +66,11 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
           <div className="max-w-3xl">
             <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 whitespace-nowrap ${colors.textPrimary}`}>
-              Hi, I'm <span className={colors.brandPrimary}>{name}</span>
+              Hi, I'm <span className={colors.brandPrimary}>
+                {displayText}
+                <span className={`inline-block h-12 w-1.5 ml-1 bg-current cursor-blink align-middle`}></span>
+              </span>
             </h1>
-            
-            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-6 ${colors.textSecondary}`}>
-              {title}
-            </h2>
             
             <p className={`text-xl mb-8 leading-relaxed ${colors.textAccent}`}>
               {bio}
