@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { personalInfo } from '../../utils/mockData';
-import logoImage from '../../assets/images/RahulSahooLogo.png';
-import { useThemeColors } from '../../hooks/useThemeColors';
+import { useState, useEffect } from "react";
+import { personalInfo } from "../../utils/mockData";
+import logoImage from "../../assets/images/RahulSahooLogo.png";
+import { useThemeColors } from "../../hooks/useThemeColors";
 
 type NavLink = {
   label: string;
@@ -9,13 +9,13 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -28,31 +28,36 @@ export default function Header() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? `${colors.bgPrimary} bg-opacity-90 shadow-md backdrop-blur-sm` : 'bg-transparent'
+        isScrolled
+          ? `${colors.bgPrimary} bg-opacity-90 shadow-md backdrop-blur-sm`
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 font-bold text-xl flex items-center">
-            <a href="#home" className={`flex items-center ${colors.textPrimary}`}>
-              <img 
-                src={logoImage} 
-                alt="Rahul Sahoo Logo" 
+            <a
+              href="#home"
+              className={`flex items-center ${colors.textPrimary}`}
+            >
+              <img
+                src={logoImage}
+                alt="Rahul Sahoo Logo"
                 className="h-10 w-10 mr-2"
               />
               {personalInfo.name}
             </a>
           </div>
-          
+
           {/* Desktop navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
@@ -65,7 +70,7 @@ export default function Header() {
               </a>
             ))}
           </nav>
-          
+
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
@@ -116,10 +121,12 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
+        className={`md:hidden ${mobileMenuOpen ? "block" : "hidden"}`}
         id="mobile-menu"
       >
-        <div className={`px-2 pt-2 pb-3 space-y-1 ${colors.bgPrimary} shadow-lg`}>
+        <div
+          className={`px-2 pt-2 pb-3 space-y-1 ${colors.bgPrimary} shadow-lg`}
+        >
           {navLinks.map((link) => (
             <a
               key={link.href}

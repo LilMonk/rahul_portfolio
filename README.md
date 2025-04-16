@@ -32,12 +32,14 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 ### Installation
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/LilMonk/portfolio.git
 cd portfolio
 ```
 
 2. Install dependencies
+
 ```bash
 npm install
 # or
@@ -45,6 +47,7 @@ yarn
 ```
 
 3. Start the development server
+
 ```bash
 npm run dev
 # or

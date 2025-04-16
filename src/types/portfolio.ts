@@ -12,7 +12,7 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number; // 0-100
-  category: 'frontend' | 'backend' | 'other';
+  category: "frontend" | "backend" | "other";
 }
 
 export interface Experience {
@@ -20,7 +20,7 @@ export interface Experience {
   company: string;
   location: string;
   startDate: string;
-  endDate: string | 'Present';
+  endDate: string | "Present";
   description: string[];
   technologies: string[];
 }

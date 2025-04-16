@@ -1,21 +1,21 @@
-import './App.css';
-import { ThemeProvider } from './context/ThemeContext';
+import "./App.css";
+import { ThemeProvider } from "./context/ThemeContext";
 // Using React.lazy for ThemeToggler to avoid import issues
-import React, { lazy, Suspense } from 'react';
-const ThemeToggler = lazy(() => import('./components/ui/ThemeToggler'));
+import React, { lazy, Suspense } from "react";
+const ThemeToggler = lazy(() => import("./components/ui/ThemeToggler"));
 
 // Layout Components
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 // Section Components
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Projects from './components/sections/Projects';
-import Experience from './components/sections/Experience';
-import Skills from './components/sections/Skills';
-import Blog from './components/sections/Blog';
-import Contact from './components/sections/Contact';
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Projects from "./components/sections/Projects";
+import Experience from "./components/sections/Experience";
+import Skills from "./components/sections/Skills";
+import Blog from "./components/sections/Blog";
+import Contact from "./components/sections/Contact";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <ThemeToggler />
         </Suspense>
         <Header />
-        
+
         <main>
           <Hero />
           <About />
@@ -35,7 +35,7 @@ function App() {
           <Blog />
           <Contact />
         </main>
-        
+
         <Footer />
       </div>
     </ThemeProvider>
