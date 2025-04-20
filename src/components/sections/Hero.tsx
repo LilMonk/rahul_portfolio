@@ -10,7 +10,7 @@ export default function Hero() {
   const items = [name, "Software Consultant", "Data Engineer", "DevOps"];
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const [isTyping] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
 

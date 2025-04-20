@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { projects } from "../../utils/mockData";
 import { Project } from "../../types/portfolio";
 import { useThemeColors } from "../../hooks/useThemeColors";
@@ -6,6 +6,7 @@ import { useThemeColors } from "../../hooks/useThemeColors";
 export default function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const colors = useThemeColors();
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleProjectClick = (project: Project) => {
     setActiveProject(project);
@@ -14,6 +15,26 @@ export default function Projects() {
   const closeModal = () => {
     setActiveProject(null);
   };
+
+  // Handle click outside of modal
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        closeModal();
+      }
+    };
+
+    if (activeProject) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeProject]);
 
   return (
     <section id="projects" className={`py-16 ${colors.bgPrimary}`}>
@@ -29,7 +50,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -108,10 +129,22 @@ export default function Projects() {
 
       {/* Modal for project details */}
       {activeProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div
-            className={`${colors.bgPrimary} rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto`}
+            ref={modalRef}
+            className={`${colors.bgPrimary} rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto scrollbar-hide`}
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
           >
+            <style>
+              {`
+                .scrollbar-hide::-webkit-scrollbar {
+                  display: none;
+                }
+              `}
+            </style>
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h3 className={`text-2xl font-bold ${colors.textPrimary}`}>

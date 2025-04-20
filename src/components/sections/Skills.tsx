@@ -112,22 +112,6 @@ export default function Skills() {
                 </h3>
               </div>
 
-              <div className="flex items-center mb-2">
-                <div
-                  className={`w-full ${colors.getThemeClass("bg-gray-200", "bg-gray-700")} rounded-full h-3`}
-                >
-                  <div
-                    className="bg-indigo-600 h-3 rounded-full transition-all duration-500 ease-in-out"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-                <span
-                  className={`ml-2 text-sm font-semibold ${colors.brandPrimary}`}
-                >
-                  {skill.level}%
-                </span>
-              </div>
-
               <div className={`text-xs ${colors.textAccent} mt-2 opacity-70`}>
                 {skill.category.charAt(0).toUpperCase() +
                   skill.category.slice(1)}

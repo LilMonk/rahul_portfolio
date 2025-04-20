@@ -6,6 +6,7 @@ import {
   Skill,
 } from "../types/portfolio";
 import logoImage from "../assets/images/RahulSahooLogo.png"; // Using existing logo as a fallback for missing images
+import spamDetectionImage from "../assets/images/blog/Spam_Email_Detection_Architecture_Diagram.png";
 
 export const personalInfo: PersonalInfo = {
   name: "Rahul Kumar Sahoo",
@@ -44,6 +45,17 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/LilMonk/flink-iceberg-cdc",
     details:
       "Designed and developed a robust stream processing system for Change Data Capture (CDC) events. This solution ensures real-time data synchronization between multiple systems, maintaining data consistency and integrity across the entire data ecosystem.",
+  },
+  {
+    id: "project-3",
+    title: "Email Spam Detection",
+    description:
+      "Built an end to end scalable pipeline for email spam detection using machine learning algorithms.",
+    imageUrl: spamDetectionImage, // Use the imported image
+    technologies: ["Java", "Kafka", "Mongo DB"],
+    githubUrl: "https://github.com/LilMonk/Email_Radar",
+    details:
+      "Developed a comprehensive pipeline for email spam detection, leveraging advanced machine learning algorithms. This scalable solution efficiently identifies and filters spam emails, enhancing user experience and security.",
   },
 ];
 
