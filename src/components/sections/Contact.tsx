@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { personalInfo } from "../../utils/mockData";
 import { useThemeColors } from "../../hooks/useThemeColors";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -28,23 +29,52 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage(null);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      
+      // Format the current date
+      const currentDate = new Date().toLocaleString();
+      
+      // Send notification email to yourself
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          date: currentDate,
+        },
+        publicKey
+      );
+      
       setSubmitMessage({
         type: "success",
         text: "Your message has been sent successfully! I will get back to you soon.",
       });
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
         message: "",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setSubmitMessage({
+        type: "error",
+        text: "Failed to send message. Please try again later or contact me directly via email.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const { contact } = personalInfo;

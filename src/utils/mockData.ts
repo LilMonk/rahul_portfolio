@@ -14,7 +14,7 @@ export const personalInfo: PersonalInfo = {
   bio: "I am a passionate software consultant with a strong background in designing, developing, and deploying innovative tech solutions for diverse business needs. Over the years, I have honed my expertise in areas such as big data, devops, and data science. I believe in my ability to solve complex problems and deliver high-quality solutions. My goal is to collaborate with forward-thinking teams and clients, delivering products that drive measurable impact.",
   avatar: logoImage, // Using logo image as fallback
   contact: {
-    email: "rahulsahoo66@gmai.com",
+    email: "rahulsahoo66@gmail.com",
     linkedin: "https://www.linkedin.com/in/rahulkumar-sahoo/",
     github: "https://github.com/LilMonk",
     twitter: "https://x.com/rahul_sahoo_9",

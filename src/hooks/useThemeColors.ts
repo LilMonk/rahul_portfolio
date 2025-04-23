@@ -41,7 +41,7 @@ export const useThemeColors = () => {
     ),
     buttonSecondary: getThemeClass(
       "bg-white text-indigo-600 border border-indigo-600 hover:bg-gray-100",
-      "bg-gray-700 text-indigo-400 border border-indigo-500 hover:bg-gray-600",
+      "bg-gray-700 text-gray-200 border border-indigo-500 hover:bg-gray-600",
     ),
 
     // Border colors
