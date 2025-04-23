@@ -7,7 +7,12 @@ export default function Hero() {
   const colors = useThemeColors();
 
   // Define items to cycle through with typing animation
-  const items = [name, "Software Consultant", "Data Engineer", "DevOps Engineer"];
+  const items = [
+    name,
+    "Software Consultant",
+    "Data Engineer",
+    "DevOps Engineer",
+  ];
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping] = useState(true);

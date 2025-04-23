@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { personalInfo } from "../../utils/mockData";
 import { useThemeColors } from "../../hooks/useThemeColors";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import { config } from "../../config/config";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,13 +36,13 @@ export default function Contact() {
     setSubmitMessage(null);
 
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      
+      const serviceId = config.emailjs.serviceId;
+      const templateId = config.emailjs.templateId;
+      const publicKey = config.emailjs.publicKey;
+
       // Format the current date
       const currentDate = new Date().toLocaleString();
-      
+
       // Send notification email to yourself
       await emailjs.send(
         serviceId,
@@ -52,14 +53,14 @@ export default function Contact() {
           message: formData.message,
           date: currentDate,
         },
-        publicKey
+        publicKey,
       );
-      
+
       setSubmitMessage({
         type: "success",
         text: "Your message has been sent successfully! I will get back to you soon.",
       });
-      
+
       // Reset form
       setFormData({
         name: "",
