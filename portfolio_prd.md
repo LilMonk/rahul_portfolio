@@ -3,8 +3,9 @@ Below is a comprehensive Product Requirement Document (PRD) for a personal portf
 ---
 
 ## 1. Purpose and Overview
+
 - **Goal**: Create a professional, modern, and responsive portfolio website that highlights your software development and consulting services.
-- **Primary Audience**: 
+- **Primary Audience**:
   - Potential clients seeking software consulting.
   - Recruiters or hiring managers looking for software engineering expertise.
   - Professional peers interested in networking or collaboration.
@@ -16,7 +17,9 @@ Below is a comprehensive Product Requirement Document (PRD) for a personal portf
 ---
 
 ## 2. Scope
+
 This PRD covers:
+
 1. **Website structure and architecture** (page layout, navigation).
 2. **Core content requirements** (about, work experience, projects, blog/articles, awards, contact).
 3. **Technical requirements** (front-end framework, hosting, SEO considerations).
@@ -28,7 +31,9 @@ This PRD covers:
 ## 3. Functional Requirements
 
 ### 3.1 Landing/Home Page
+
 - **Key Elements**:
+
   - **Header** with name, title (Software Consultant), and an optional tagline (e.g., “Transforming ideas into scalable software solutions”).
   - **Hero Section** with a professional photo or illustration, a concise summary of who you are, and a clear Call to Action (e.g., “View My Work” or “Contact Me”).
   - **Navigation Menu** linking to major sections: About, Experience, Projects, Skills, Blog/Articles, Contact.
@@ -40,6 +45,7 @@ This PRD covers:
   - Access the website’s main sections via the top navigation bar or hamburger menu (mobile).
 
 ### 3.2 About/Background Section
+
 - **Purpose**: Give a personal, yet professional description of your background and career journey.
 - **Content**:
   - A concise bio, mentioning your academic background (e.g., B.Tech. in Computer Science from Maharashtra Institute of Technology), professional highlights, and a short statement of your career goals or personal philosophy.
@@ -48,6 +54,7 @@ This PRD covers:
   - A short timeline or infographic showing major career milestones.
 
 ### 3.3 Experience Section
+
 - **Purpose**: Highlight your work history, roles, responsibilities, and accomplishments.
 - **Content**:
   - **Company/Client Name** (where not under NDA), role, and dates of employment.
@@ -60,6 +67,7 @@ This PRD covers:
   - If you have NDA-protected work, mention your contribution in general terms while respecting confidentiality.
 
 ### 3.4 Projects Portfolio
+
 - **Purpose**: Showcase your technical prowess and consulting engagements.
 - **Content**:
   - For each project:
@@ -72,6 +80,7 @@ This PRD covers:
   - Categorize by technology or domain (e.g., Web Apps, Data Science, Cloud Consulting).
 
 ### 3.5 Skills and Expertise
+
 - **Purpose**: Quickly convey your technical and domain expertise.
 - **Content**:
   - Hard Skills (programming languages, frameworks, tools—Java, Python, Big Data, Data Science).
@@ -81,6 +90,7 @@ This PRD covers:
   - Include any certifications (e.g., “Introduction to Data Science in Python” from University of Michigan) with badges or clickable proof if available.
 
 ### 3.6 Blog/Articles (Optional)
+
 - **Purpose**: Demonstrate thought leadership, share tips, or discuss technical solutions.
 - **Content**:
   - Blog posts or articles you’ve written on Medium, LinkedIn, or a custom blog.
@@ -90,12 +100,14 @@ This PRD covers:
   - Option for visitors to leave comments or likes (optional, depending on your preference).
 
 ### 3.7 Awards & Honors
+
 - **Purpose**: Shine a spotlight on recognition you have received.
 - **Content**:
   - Name of award (e.g., Persistent Bravo – Individual Award), date of receipt, issuing organization (Persistent Systems).
   - Brief description of award criteria or significance.
 
 ### 3.8 Contact Section
+
 - **Purpose**: Provide a direct channel for inquiries and professional connections.
 - **Content**:
   - **Contact Form** with fields for name, email, message.
@@ -105,6 +117,7 @@ This PRD covers:
   - Email notifications triggered when a new inquiry is submitted.
 
 ### 3.9 Resume/CV Page or Download
+
 - **Purpose**: Offer a quick way to view or download your CV.
 - **Content**:
   - Embedded PDF viewer or direct “Download CV” link.
@@ -115,25 +128,30 @@ This PRD covers:
 ## 4. Non-Functional Requirements
 
 ### 4.1 Performance
+
 - **Page Load**: Should ideally load in under 2 seconds on a standard broadband connection.
 - **Mobile Optimization**: Must be fully responsive and user-friendly on small devices.
 
 ### 4.2 Reliability
-- **Hosting**: Must ensure 99% or higher uptime. 
+
+- **Hosting**: Must ensure 99% or higher uptime.
 - **Error Handling**: Provide a custom 404 page for broken links, with easy navigation back to the home page.
 
 ### 4.3 Security
+
 - **SSL Certificate**: The site must use HTTPS to secure user data (especially contact form submissions).
 - **Spam Prevention**: Implement a basic Captcha or honey-pot to reduce spam submissions.
 - **Privacy**: No sensitive data stored except minimal contact form submissions, which should be secured.
 
 ### 4.4 Maintainability
+
 - **Architecture**: Code should be modular to allow easy updates to content and features.
 - **CMS (Optional)**: If you intend to frequently update posts or content, a lightweight CMS (e.g., Netlify CMS, Contentful, or WordPress) may be considered.
 - **Documentation**: Basic developer documentation for environment setup, deployment, and content updates.
 
 ### 4.5 Scalability
-- **Traffic Handling**: Should handle expected traffic (visits from recruiters, potential clients, casual browsers). 
+
+- **Traffic Handling**: Should handle expected traffic (visits from recruiters, potential clients, casual browsers).
 - **Hosting Option**: Using a platform that auto-scales (e.g., Vercel, Netlify, AWS) for minimal overhead if traffic spikes.
 
 ---
@@ -141,26 +159,30 @@ This PRD covers:
 ## 5. Technical Requirements
 
 ### 5.1 Front-End Technologies
+
 - **Framework**: React, Vue, or plain HTML/CSS/JS for simpler sites.
 - **Styling**: Tailwind CSS, Bootstrap, or custom CSS for a unique design.
 - **Responsive Design**: Built with a mobile-first approach and tested on major browsers.
 
 ### 5.2 Back-End and Hosting
+
 - **Static Site**: Prefer a static site generator (e.g., Gatsby, Next.js, or Jekyll) for performance and security benefits if a blog or dynamic content is needed.
-- **Contact Form Handling**: 
+- **Contact Form Handling**:
   - Could be integrated via serverless functions (e.g., AWS Lambda, Netlify Functions) or a third-party service (Formspree, Getform, etc.).
 - **Deployment**:
   - **Preferred**: Deploy on Netlify, Vercel, or AWS Amplify for continuous integration and easy domain management.
   - **Custom Domain**: e.g., `www.rahulkumarsahoo.com` (or your chosen domain).
 
 ### 5.3 Integrations
+
 - **Analytics**: Google Analytics (GA4) or an alternative privacy-focused tool (e.g., Plausible).
-- **SEO**: 
+- **SEO**:
   - Proper meta tags, open graph tags, page titles, and descriptions.
   - Sitemap generation for better indexing.
   - SSL certificate to improve search rankings.
 
 ### 5.4 Version Control
+
 - **Repository**: GitHub or GitLab to store code.
 - **Branching Strategy**: A standard approach (e.g., main branch for production, dev branch for new features).
 
@@ -228,6 +250,7 @@ This PRD covers:
 ---
 
 ## 9. Future Enhancements (Wishlist)
+
 1. **Testimonials**: Add client or colleague testimonials for additional credibility.
 2. **Case Studies**: Deeper breakdown of complex projects with before/after metrics.
 3. **Video Introductions**: Personal video message or project demos.
@@ -238,6 +261,7 @@ This PRD covers:
 ---
 
 ## 10. Approvals and Sign-off
+
 - **Stakeholder**: You (the website owner) have the final say on content, design, and functionality.
 - **Design Approval**: Confirm alignment with personal/brand identity (colors, fonts, styling).
 - **Development Approval**: Ensure all required features are implemented and tested.
@@ -245,4 +269,5 @@ This PRD covers:
 ---
 
 ### Conclusion
-This PRD outlines the main requirements for creating a dynamic, professional portfolio website for a software consultant. It focuses on clarity of information, clean design, and easy navigation. By following the outlined steps, you’ll have a solid foundation for developing or commissioning a website that effectively showcases your expertise and appeals to potential clients and employers. 
+
+This PRD outlines the main requirements for creating a dynamic, professional portfolio website for a software consultant. It focuses on clarity of information, clean design, and easy navigation. By following the outlined steps, you’ll have a solid foundation for developing or commissioning a website that effectively showcases your expertise and appeals to potential clients and employers.
