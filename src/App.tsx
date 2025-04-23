@@ -1,7 +1,7 @@
 import "./App.css";
 import { ThemeProvider } from "./context/ThemeContext";
 // Using React.lazy for ThemeToggler to avoid import issues
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 const ThemeToggler = lazy(() => import("./components/ui/ThemeToggler"));
 
 // Layout Components
