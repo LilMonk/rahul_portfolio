@@ -1,6 +1,9 @@
 import { personalInfo } from "../../utils/mockData";
 import { useThemeColors } from "../../hooks/useThemeColors";
 import { useTheme } from "../../context/ThemeContext";
+import darkProfileImage from "../../assets/images/rahul_kumar_sahoo_profile-dark-bg.jpg";
+import lightProfileImage from "../../assets/images/rahul_kumar_sahoo_profile.jpeg";
+
 
 export default function About() {
   const { name, title, bio, contact } = personalInfo;
@@ -8,10 +11,10 @@ export default function About() {
   const { theme } = useTheme();
 
   // Conditionally set profile image based on theme
-  const profileImage =
-    theme === "dark"
-      ? "/src/assets/images/rahul_kumar_sahoo_profile-dark-bg.jpg"
-      : "/src/assets/images/rahul_kumar_sahoo_profile.jpeg";
+  // Import profile images
+  
+  // Conditionally set profile image based on theme
+  const profileImage = theme === "dark" ? darkProfileImage : lightProfileImage;
 
   return (
     <section id="about" className={`py-16 ${colors.bgSecondary}`}>
